@@ -56,10 +56,17 @@ scissors = '''
 # elif (choice==0 and computer_choice==2) or (choice==1 and computer_choice==0) or (choice==2 and computer_choice==1):
 #   print("You win")
 
-#Version 2. Added recurssion when the result is a draw. Reduced if-else statements. Added lists and dict to structure data.
+#Version 2.1. Added recurssion when the result is a draw. Reduced if-else statements. Added lists and dict to structure data.
 
 art = [rock, paper, scissors]
 choice_dict = {0: "Rock", 1: "Paper", 2: "Scissors"}
+
+#players choices
+def player_hand():
+    choice = int(input("What do you choose? Type '0' for Rock, '1' for Paper or '2' for Scissors: "))
+    player_chose = choice_dict[choice]
+    print(art[choice])
+    return player_chose
 
 #computers random choices
 def computer_hand():
@@ -81,9 +88,7 @@ def result(player, computer):
         
 #game body
 def game():
-    choice = int(input("What do you choose? Type '0' for Rock, '1' for Paper or '2' for Scissors: "))
-    player_choice = choice_dict[choice]
-    print(art[choice])
+    player_choice = player_hand()
     print(f"You chose: {player_choice}")
     computer_choice = computer_hand()
     print(f"Computer chose: {computer_choice}")
